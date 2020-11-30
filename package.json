@@ -1,0 +1,33 @@
+{
+  "name": "amp-viewer",
+  "version": "0.1.0",
+  "description": "An AMP Viewer Playground",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samouri/amp-viewer.git"
+  },
+  "keywords": [
+    "amp",
+    "viewer",
+    "test",
+    "hosted"
+  ],
+  "author": "samouri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samouri/amp-viewer/issues"
+  },
+  "homepage": "https://github.com/samouri/amp-viewer#readme",
+  "dependencies": {
+    "next": "^10.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
