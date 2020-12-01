@@ -3,10 +3,10 @@ import Image from 'next/image';
 
 import { Sizer, CenteringWrapper, colors } from '../utils';
 import Viewer from '../viewer';
-import { useState } from 'react';
 
 function HomePage() {
   const router = useRouter();
+  const height = router.query.height ? Number(router.query.height) : 0;
   const local = !!router.query.local;
   let url = router.query.url;
   if (url) {
@@ -115,7 +115,7 @@ function HomePage() {
         </div>
       </CenteringWrapper>
       <CenteringWrapper>
-        <Viewer src={url} local={local} />
+        <Viewer src={url} local={local} height={height}/>
       </CenteringWrapper>
     </>
   );

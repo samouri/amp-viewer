@@ -1,7 +1,7 @@
 import { Messaging } from './node_modules/@ampproject/viewer-messaging/messaging.js';
 import { useCallback } from 'react';
 
-function Viewer({ src, local }) {
+function Viewer({ src, local, height }) {
   if (typeof window === 'undefined' || !src) {
     return null;
   }
@@ -36,6 +36,7 @@ function Viewer({ src, local }) {
   return (
     <iframe
       style={{ width: '100%' }}
+      height={height}
       src={proxySrc}
       ref={establishMessagingChannelFn}
     />
