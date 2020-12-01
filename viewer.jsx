@@ -8,7 +8,7 @@ function Viewer({ src }) {
 
   const params = {
     history: 1,
-    cap: 'a2a,focus-rect,keyboard,swipe,iframeScroll',
+    cap: 'a2a,focus-rect,keyboard,swipe',
     origin: window.location.origin,
   };
 
