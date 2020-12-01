@@ -14,16 +14,15 @@ function Viewer({ src }) {
 
   const establishMessagingChannelFn = useCallback(
     async (iframe) => {
-      if (!iframe) {
+      if (!iframe || !src) {
         return;
       }
       const messaging = await Messaging.waitForHandshakeFromDocument(
         /* source window */ window,
         /* target window */ iframe.contentWindow,
-        /* target origin */ src
+        /* target origin */ new URL(src).origin
       );
-      console.log('hangs before this part', messaging);
-      messaging.setDefaultHandle((...args) => handleMessage(iframe, ...args));
+      messaging.setDefaultHandler((...args) => handleMessage(iframe, ...args));
     },
     [src]
   );
@@ -38,6 +37,10 @@ function Viewer({ src }) {
 }
 
 function handleMessage(iframe, name, data, rsvp) {
+  if (name === 'documentHeight') {
+    const { height } = data;
+    iframe.style.height = height + 'px';
+  }
   console.log({ name, data, rsvp, iframe });
 }
 
