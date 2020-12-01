@@ -1,17 +1,18 @@
 import { useRouter } from "next/router";
 
-import { Sizer, CenteringWrapper } from "../utils";
-
-// COLORS
-const TOPBAR_COLOR = "rgb(69, 90, 100)";
-const HERO_CTA_COLOR = "rgb(96, 125, 139)";
+import { Sizer, CenteringWrapper, colors } from "../utils";
+import Viewer from "../viewer";
 
 function HomePage() {
   const router = useRouter();
-  const url = router.query.url;
+  let url = router.query.url;
+  if (url && !url.startsWith('https://')) {
+    url += 'https://';
+  }
+
   return (
     <>
-      <CenteringWrapper backgroundColor={TOPBAR_COLOR}>
+      <CenteringWrapper backgroundColor={colors.topbar}>
         <div style={{ display: "flex", flexDirection: "column", height: 150 }}>
           <div style={{ display: "flex", height: 50 }}>
             <span style={{ fontSize: 32, color: "white", lineHeight: "50px" }}>
@@ -78,7 +79,7 @@ function HomePage() {
       </CenteringWrapper>
       <CenteringWrapper>
         {/* TODO: use actual viewer and listen to documentHeight changes. */}
-        <iframe src={url} style={{ width: "100%", height: "500px" }} />
+        <Viewer src={url} />
       </CenteringWrapper>
     </>
   );

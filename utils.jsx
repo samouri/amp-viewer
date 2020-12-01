@@ -4,17 +4,17 @@ function Sizer({ height, width }) {
 
 function CenteringWrapper({
   children,
-  backgroundColor = "white",
+  backgroundColor = 'white',
   gutterWidth = 50,
 }) {
   return (
     <>
-      <div style={{ position: "relative", width: "100%" }}>
+      <div style={{ position: 'relative', width: '100%' }}>
         <div
           style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
             backgroundColor,
             zIndex: -1,
           }}
@@ -22,9 +22,9 @@ function CenteringWrapper({
         <div
           style={{
             width: `calc(100vw - ${gutterWidth * 2}px)`,
-            alignItems: "center",
+            alignItems: 'center',
             maxWidth: 1024,
-            margin: "0 auto",
+            margin: '0 auto',
           }}
         >
           {children}
@@ -34,4 +34,9 @@ function CenteringWrapper({
   );
 }
 
-export { Sizer, CenteringWrapper };
+const colors = {
+  topbar: 'rgb(69, 90, 100)',
+  hero: 'rgb(96, 125, 139)',
+};
+
+export { Sizer, CenteringWrapper, colors };

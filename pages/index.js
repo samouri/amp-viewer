@@ -1,16 +1,14 @@
 import { useRouter } from "next/router";
 
-import { Sizer, CenteringWrapper } from "../utils";
+import { Sizer, CenteringWrapper, colors } from "../utils";
 
 // COLORS
-const TOPBAR_COLOR = "rgb(69, 90, 100)";
-const HERO_CTA_COLOR = "rgb(96, 125, 139)";
 
 function HomePage() {
   const router = useRouter();
   return (
     <>
-      <CenteringWrapper backgroundColor={TOPBAR_COLOR}>
+      <CenteringWrapper backgroundColor={colors.topbar}>
         <div style={{ display: "flex", flexDirection: "row", height: 50 }}>
           <span style={{ fontSize: 32, color: "white", lineHeight: "50px" }}>
             AMP Test Viewer
@@ -18,7 +16,7 @@ function HomePage() {
           <Sizer width={32} />
         </div>
       </CenteringWrapper>
-      <CenteringWrapper backgroundColor={HERO_CTA_COLOR}>
+      <CenteringWrapper backgroundColor={colors.hero}>
         <div style={{ height: 540 }}>
           <div
             style={{
