@@ -71,7 +71,6 @@ function HomePage() {
                   outline: 'none',
                   border: 'none',
                 }}
-                type="url"
                 autoComplete="off"
                 tabIndex="0"
                 placeholder="Enter a URL to test"
@@ -103,13 +102,6 @@ function HomePage() {
                 value="TEST URL"
               />
             </form>
-            <Sizer height={32} />
-            <p style={{ color: 'white' }}>
-              Note: AMP Documents must include the script for{' '}
-              <a href="https://github.com/ampproject/amphtml/tree/master/extensions/amp-viewer-integration/0.1/messaging">
-                amp-viewer-integration
-              </a>
-            </p>
           </div>
         </div>
       </CenteringWrapper>

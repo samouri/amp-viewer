@@ -5,9 +5,5 @@
 ## Instructions
 
 1. Go to https://amp-viewer.vercel.app/
-2. Type in the URL you'd like to test. Note that it must include the src for `amp-viewer-integration` 
-
-```html
-<script async src="https://cdn.ampproject.org/v0/amp-viewer-integration-0.1.js"></script>
-```
+2. Type in the URL you'd like to test. 
 3. Hit enter.

@@ -3,21 +3,45 @@ import Image from 'next/image';
 
 import { Sizer, CenteringWrapper, colors } from '../utils';
 import Viewer from '../viewer';
+import { useState } from 'react';
 
 function HomePage() {
   const router = useRouter();
+  const local = !!router.query.local;
   let url = router.query.url;
-  if (url && !url.startsWith('https://')) {
-    url += 'https://';
+  if (url) {
+    if (url.startsWith('http://')) {
+      url = url.replace('http://', 'https://');
+    } else if (!url.startsWith('https://')) {
+      url = 'https://' + url;
+    }
   }
 
   return (
     <>
       <CenteringWrapper backgroundColor={colors.topbar}>
         <div style={{ display: 'flex', flexDirection: 'column', height: 150 }}>
-          <div style={{ display: 'flex', height: 50 }}>
+          <div style={{ display: 'flex', height: 50, alignItems: 'baseline' }}>
             <span style={{ fontSize: 32, color: 'white', lineHeight: '50px' }}>
               AMP Test Viewer
+            </span>
+            <Sizer width={32} />
+            <span style={{ fontSize: 18, lineHeight: '50px', color: 'white' }}>
+              Local:
+              <input
+                type="checkbox"
+                style={{ fontSize: 18, cursor: 'pointer' }}
+                defaultChecked={local}
+                onClick={() => {
+                  const queryParams = new URLSearchParams(location.search);
+                  if (local) {
+                    queryParams.delete('local');
+                  } else {
+                    queryParams.set('local', true);
+                  }
+                  window.location.search = queryParams.toString();
+                }}
+              />
             </span>
             <a
               href="https://github.com/samouri/amp-viewer"
@@ -54,7 +78,6 @@ function HomePage() {
                   outline: 'none',
                   border: 'none',
                 }}
-                type="url"
                 autoComplete="off"
                 tabIndex="0"
                 placeholder="Enter a URL to test"
@@ -65,6 +88,7 @@ function HomePage() {
                 autoCapitalize="off"
                 spellCheck="false"
               />
+
               <input
                 type="submit"
                 role="button"
@@ -91,8 +115,7 @@ function HomePage() {
         </div>
       </CenteringWrapper>
       <CenteringWrapper>
-        {/* TODO: use actual viewer and listen to documentHeight changes. */}
-        <Viewer src={url} />
+        <Viewer src={url} local={local} />
       </CenteringWrapper>
     </>
   );
