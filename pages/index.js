@@ -1,6 +1,6 @@
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 
-import { Sizer, CenteringWrapper, colors } from "../utils";
+import { Sizer, CenteringWrapper, colors } from '../utils';
 
 // COLORS
 
@@ -9,8 +9,8 @@ function HomePage() {
   return (
     <>
       <CenteringWrapper backgroundColor={colors.topbar}>
-        <div style={{ display: "flex", flexDirection: "row", height: 50 }}>
-          <span style={{ fontSize: 32, color: "white", lineHeight: "50px" }}>
+        <div style={{ display: 'flex', flexDirection: 'row', height: 50 }}>
+          <span style={{ fontSize: 32, color: 'white', lineHeight: '50px' }}>
             AMP Test Viewer
           </span>
           <Sizer width={32} />
@@ -20,21 +20,21 @@ function HomePage() {
         <div style={{ height: 540 }}>
           <div
             style={{
-              display: "flex",
+              display: 'flex',
               maxWidth: 700,
-              flexDirection: "column",
-              margin: "auto auto",
+              flexDirection: 'column',
+              margin: 'auto auto',
             }}
           >
             <Sizer height={120} />
             <h1
               style={{
-                display: "block",
+                display: 'block',
                 fontSize: 45,
-                color: "white",
+                color: 'white',
                 fontWeight: 300,
-                WebkitFontSmoothing: "antialiased",
-                margin: "0 auto",
+                WebkitFontSmoothing: 'antialiased',
+                margin: '0 auto',
               }}
             >
               Test out your AMP Page in a Viewer
@@ -51,13 +51,13 @@ function HomePage() {
               <input
                 id="url_input"
                 style={{
-                  color: "rgba(0,0,0,0.87)",
+                  color: 'rgba(0,0,0,0.87)',
                   width: '100%',
                   fontSize: 16,
                   height: 50,
-                  padding: "0px 20px",
-                  outline: "none",
-                  border: "none",
+                  padding: '0px 20px',
+                  outline: 'none',
+                  border: 'none',
                 }}
                 type="url"
                 autoComplete="off"
@@ -77,20 +77,27 @@ function HomePage() {
                   display: 'block',
                   width: 120,
                   height: 40,
-                  lineHeight: "40px",
-                  textAlign: "center",
+                  lineHeight: '40px',
+                  textAlign: 'center',
                   borderRadius: 5,
                   fontSize: 14,
                   fontWeight: 500,
-                  cursor: "pointer",
-                  margin: "0px auto",
-                  backgroundColor: "#ff9e00",
+                  cursor: 'pointer',
+                  margin: '0px auto',
+                  backgroundColor: '#ff9e00',
                   boxShadow:
-                    "0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2)",
+                    '0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2)',
                 }}
                 value="TEST URL"
               />
             </form>
+            <Sizer height={32} />
+            <p style={{ color: 'white' }}>
+              Note: AMP Documents must include the script for{' '}
+              <a href="https://github.com/ampproject/amphtml/tree/master/extensions/amp-viewer-integration/0.1/messaging">
+                amp-viewer-integration
+              </a>
+            </p>
           </div>
         </div>
       </CenteringWrapper>
