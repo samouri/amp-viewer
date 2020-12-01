@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 import { Sizer, CenteringWrapper, colors } from '../utils';
 
@@ -13,7 +14,18 @@ function HomePage() {
           <span style={{ fontSize: 32, color: 'white', lineHeight: '50px' }}>
             AMP Test Viewer
           </span>
-          <Sizer width={32} />
+          <a
+            href="https://github.com/samouri/amp-viewer"
+            style={{
+              marginLeft: 'auto',
+              height: 32,
+              position: 'relative',
+              top: '50%',
+              transform: 'translateY(-50%)',
+            }}
+          >
+            <Image src="/gh.png" height={32} width={32} />
+          </a>
         </div>
       </CenteringWrapper>
       <CenteringWrapper backgroundColor={colors.hero}>
