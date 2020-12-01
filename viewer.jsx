@@ -1,15 +1,11 @@
 import { Messaging } from './node_modules/@ampproject/viewer-messaging/messaging.js';
 import { useCallback } from 'react';
 
-const origin =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000'
-    : 'http://amp-viewer.vercel.app/';
-
 function Viewer({ src, local }) {
   if (typeof window === 'undefined' || !src) {
     return null;
   }
+  const origin = window.location.origin;
 
   const hashParams = {
     history: 1,
