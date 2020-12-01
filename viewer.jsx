@@ -39,6 +39,7 @@ function Viewer({ src, local, height }) {
       height={height}
       src={proxySrc}
       ref={establishMessagingChannelFn}
+      sandbox={'allow-scripts allow-forms allow-same-origin allow-popups'}
     />
   );
 }
@@ -48,11 +49,13 @@ function qs(obj) {
 }
 
 function handleMessage(iframe, name, data, rsvp) {
-  if (name === 'documentHeight') {
-    const { height } = data;
-    iframe.style.height = height + 'px';
-  }
-  console.log({ name, data, rsvp, iframe });
+  // Handle messages in the next event loop.
+  setTimeout(() => {
+    if (name === 'documentHeight') {
+      const { height } = data;
+      iframe.style.height = height + 'px';
+    }
+  }, 0);
 }
 
 export default Viewer;
