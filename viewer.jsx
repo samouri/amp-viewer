@@ -39,7 +39,7 @@ function Viewer({ src, local, height }) {
       height={height}
       src={proxySrc}
       ref={establishMessagingChannelFn}
-      sandbox={'allow-scripts allow-forms allow-same-origin allow-popups'}
+      sandbox={'allow-scripts allow-forms allow-popups'}
     />
   );
 }
